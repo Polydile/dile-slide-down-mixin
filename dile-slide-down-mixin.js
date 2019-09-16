@@ -1,4 +1,4 @@
-export const SlideDownMixin = function(superClass) {
+export const DileSlideDownMixin = function(superClass) {
   return class extends superClass {
 
     _getElementHeight(elem, targetHeight = '0px') {      
