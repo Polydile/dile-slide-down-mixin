@@ -1,0 +1,35 @@
+export const SlideDownMixin = function(superClass) {
+  return class extends superClass {
+
+    _getElementHeight(elem, targetHeight = '0px') {      
+      let height = 300;
+      elem.style.opacity = 0;
+      elem.style.height = 'auto';
+      if(elem.offsetHeight) {
+        height = elem.offsetHeight;
+      }
+      elem.style.height = targetHeight;
+      elem.style.opacity = 1;
+      return height;
+    }
+
+    slideShow(elem, targetHeight = '0px') {
+      let height = this._getElementHeight(elem, targetHeight);
+      setTimeout(() => {
+        elem.style.height = height + 'px';
+      }, 50);
+      setTimeout(() => {
+        elem.style.height = 'auto';
+      }, 600);
+    }
+    slideHide(elem, targetHeight='0px') {
+      let height = elem.offsetHeight;
+      if(height) {
+        elem.style.height = height + 'px';
+      }
+      setTimeout(() => {
+        elem.style.height = targetHeight;
+      }, 50);
+    }
+  }
+}
