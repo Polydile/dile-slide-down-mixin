@@ -1,5 +1,5 @@
-export const DileSlideDownMixin = function(superClass) {
-  return class extends superClass {
+export const DileSlideDownMixin = (SuperClass) => {
+  return class extends SuperClass {
 
     _getElementHeight(elem, targetHeight = '0px') {      
       let height = 300;
