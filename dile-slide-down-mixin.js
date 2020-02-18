@@ -20,10 +20,12 @@ export const DileSlideDownMixin = (SuperClass) => {
       }, 50);
       setTimeout(() => {
         elem.style.height = 'auto';
+        elem.style.overflow = 'visible';
       }, 600);
     }
     slideHide(elem, targetHeight='0px') {
       let height = elem.offsetHeight;
+      elem.style.overflow = 'hidden';
       if(height) {
         elem.style.height = height + 'px';
       }
