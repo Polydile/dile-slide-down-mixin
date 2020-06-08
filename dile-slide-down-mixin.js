@@ -14,24 +14,28 @@ export const DileSlideDownMixin = (SuperClass) => {
     }
 
     slideShow(elem, targetHeight = '0px') {
-      let height = this._getElementHeight(elem, targetHeight);
-      setTimeout(() => {
-        elem.style.height = height + 'px';
-      }, 50);
-      setTimeout(() => {
-        elem.style.height = 'auto';
-        elem.style.overflow = 'visible';
-      }, 600);
+      if(elem) {
+        let height = this._getElementHeight(elem, targetHeight);
+        setTimeout(() => {
+          elem.style.height = height + 'px';
+        }, 50);
+        setTimeout(() => {
+          elem.style.height = 'auto';
+          elem.style.overflow = 'visible';
+        }, 600);
+      }
     }
     slideHide(elem, targetHeight='0px') {
-      let height = elem.offsetHeight;
-      elem.style.overflow = 'hidden';
-      if(height) {
-        elem.style.height = height + 'px';
+      if (elem) {
+        let height = elem.offsetHeight;
+        elem.style.overflow = 'hidden';
+        if(height) {
+          elem.style.height = height + 'px';
+        }
+        setTimeout(() => {
+          elem.style.height = targetHeight;
+        }, 50);
       }
-      setTimeout(() => {
-        elem.style.height = targetHeight;
-      }, 50);
     }
   }
 }
